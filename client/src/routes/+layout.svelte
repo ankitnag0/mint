@@ -5,10 +5,8 @@
 
 <div>
 	<Header />
-	
+
 	<main>
 		<slot />
 	</main>
-
 </div>
-
