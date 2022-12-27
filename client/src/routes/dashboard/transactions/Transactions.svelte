@@ -63,46 +63,48 @@
     });
 </script>
 
-<div class="rounded-md shadow-md p-10">
+<div class="rounded-md shadow-md md:p-10">
   <div class="w-full flex flex-row-reverse"><button class="btn" on:click={refresh}>Refresh</button></div>
     <div class="flex flex-col items-center">
-        <div class="flex justify-between w-full mb-4">
-          <div class="flex flex-col items-start">
+        <div class="flex justify-between w-full mb-4 md:flex-row flex-col">
+          <div class="flex flex-col items-start m-5">
             <div class="text-lg font-bold text-gray-700">Balance</div>
-            <div class="text-4xl font-bold text-gray-700">{balance}</div>
+            <div class="text-4xl font-bold text-gray-700">{balance.toFixed(2)}</div>
           </div>
-          <div class="flex flex-col items-start">
+          <div class="flex flex-col items-start m-5">
             <div class="text-lg font-bold text-gray-700">Total Deposited</div>
-            <div class="text-4xl font-bold text-gray-700">{totalDeposited}</div>
+            <div class="text-4xl font-bold text-gray-700">{totalDeposited.toFixed(2)}</div>
           </div>
-          <div class="flex flex-col items-start">
+          <div class="flex flex-col items-start m-5">
             <div class="text-lg font-bold text-gray-700">Total Withdrawn</div>
-            <div class="text-4xl font-bold text-gray-700">{totalWithdrawn}</div>
+            <div class="text-4xl font-bold text-gray-700">{totalWithdrawn.toFixed(2)}</div>
           </div>
         </div>
-        <table class="table w-full m-10">
-            <thead>
-                <tr class="table-row font-bold text-gray-700">
-                  <th class="table-cell px-4 py-2">Date</th>
-                  <th class="table-cell px-4 py-2">Amount</th>
-                  <th class="table-cell px-4 py-2">Type</th>
-                  <th class="table-cell px-4 py-2">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {#if (transactions.length === 0)}
-                  <tr>
-                    <td class="text-center p-20" colspan="7">
-                      <p class="text-3xl">No transactions</p>
-                    </td>
+        <div class="overflow-x-auto w-full md:m-10">
+          <table class="table w-full">
+              <thead>
+                  <tr class="table-row font-bold text-gray-700">
+                    <th class="table-cell px-4 py-2">Date</th>
+                    <th class="table-cell px-4 py-2">Amount</th>
+                    <th class="table-cell px-4 py-2">Type</th>
+                    <th class="table-cell px-4 py-2">Status</th>
                   </tr>
-                {:else}
-                  {#each transactions as transaction}
-                    <Transaction {transaction}/>
-                  {/each}
-                {/if}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                  {#if (transactions.length === 0)}
+                    <tr>
+                      <td class="text-center p-20" colspan="7">
+                        <p class="text-3xl">No transactions</p>
+                      </td>
+                    </tr>
+                  {:else}
+                    {#each transactions as transaction}
+                      <Transaction {transaction}/>
+                    {/each}
+                  {/if}
+              </tbody>
+            </table>
+        </div>
           
     </div>
     <TransactionModal/>

@@ -9,6 +9,6 @@
   });
 </script>
 
-<div class="w-9/12 mx-auto p-10">
+<div class="lg:w-9/12 mx-auto p-10">
     <TabBar {user}/>
 </div>

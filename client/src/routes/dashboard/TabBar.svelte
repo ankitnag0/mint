@@ -18,7 +18,7 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div class="tabs bg-gray-200 p-4 tabs-boxed flex justify-between">
 
-    <div>
+    <div class="flex flex-col md:flex-row">
       <div class="tab" data-tab="user-info" on:click={handleTabClick} class:tab-active={activeTab === 'user-info'}>
         User Info
       </div>

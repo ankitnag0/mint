@@ -28,7 +28,7 @@
   }
 </script>
 
-<div class="w-9/12 mx-auto p-10">
+<div class="lg:w-9/12 mx-auto p-10">
     {#if isFailed}
         <div svelte:loading class="flex justify-center items-center flex-grow h-screen">
             <img src={error404} alt="error-404">
@@ -39,7 +39,7 @@
                 <img src={rocket} alt="rocket-loading">
             </div>
         {:else}
-            <form class="w-1/2 mx-auto flex flex-col content-center" on:submit|preventDefault={handleSubmit}>
+            <form class="lg:w-1/2 mx-auto flex flex-col content-center" on:submit|preventDefault={handleSubmit}>
                 <h1 class="text-2xl text-center">Login</h1>
                 <div class="form-control w-full max-w-xs mx-auto">
                     <label class="label" for="email">
