@@ -24,6 +24,6 @@ app.use(errorHandler);
 
 db();
 
-app.listen(3000, 'localhost', () => {
+app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
