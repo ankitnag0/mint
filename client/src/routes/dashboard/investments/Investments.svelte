@@ -1,4 +1,5 @@
 <script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
 	import axios from 'axios';
 	import { onMount } from 'svelte';
 	import Investment from './Investment.svelte';
@@ -26,7 +27,7 @@
 	};
 
 	const getItFromServer = async () => {
-		const response = await axios.get('http://localhost:3000/investments', {
+		const response = await axios.get(`${server}/investments`, {
 			headers: {
 				authorization: 'Bearer ' + token
 			}

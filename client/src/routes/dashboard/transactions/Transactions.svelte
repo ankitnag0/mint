@@ -1,4 +1,5 @@
 <script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
 	import axios from 'axios';
 	import { onMount } from 'svelte';
 	import Transaction from './Transaction.svelte';
@@ -22,7 +23,7 @@
 	};
 
 	const getItFromServer = async () => {
-		const response = await axios.get('http://localhost:3000/transactions', {
+		const response = await axios.get(`${server}/transactions`, {
 			headers: {
 				authorization: 'Bearer ' + token
 			}
@@ -40,7 +41,7 @@
 		}, 0);
 	};
 	const fetchBalance = async () => {
-		const response = await axios.get('http://localhost:3000/users/balance', {
+		const response = await axios.get(`${server}/users/balance`, {
 			headers: {
 				authorization: 'Bearer ' + token
 			}

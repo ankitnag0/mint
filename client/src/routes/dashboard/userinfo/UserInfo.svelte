@@ -1,4 +1,5 @@
 <script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
 	import axios from 'axios';
 	import { tokenStore, userStore } from '../../store';
 	import UserInfoModal from './UserInfoModal.svelte';
@@ -8,7 +9,7 @@
 	tokenStore.subscribe((value) => (token = value));
 	// userStore.subscribe(value => user = value);
 	const getUserInfo = async () => {
-		const response = await axios.get('http://localhost:3000/users/me/refresh', {
+		const response = await axios.get(`${server}/users/me/refresh`, {
 			headers: {
 				authorization: 'Bearer ' + token
 			}

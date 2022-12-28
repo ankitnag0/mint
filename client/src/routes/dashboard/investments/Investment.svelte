@@ -1,4 +1,5 @@
 <script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
 	import axios from 'axios';
 	import { tokenStore } from '../../store';
 
@@ -8,7 +9,7 @@
 	export let id;
 	export let investment;
 	const closeInvestment = async () => {
-		const response = await axios.delete(`http://localhost:3000/investments/${id}`, {
+		const response = await axios.delete(`${server}/investments/${id}`, {
 			headers: {
 				authorization: 'Bearer ' + token
 			}

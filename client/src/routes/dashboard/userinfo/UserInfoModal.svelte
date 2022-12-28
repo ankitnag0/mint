@@ -1,4 +1,5 @@
 <script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
 	import axios from 'axios';
 	import { tokenStore } from '../../store';
 
@@ -15,7 +16,7 @@
 	const handleSubmit = async () => {
 		console.log('making request');
 		await axios.put(
-			`http://localhost:3000/users`,
+			`${server}/users`,
 			{
 				bankDetails: {
 					bankAccountNumber,

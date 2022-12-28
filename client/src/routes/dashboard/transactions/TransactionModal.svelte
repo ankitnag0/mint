@@ -1,4 +1,5 @@
 <script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
 	import axios from 'axios';
 	import { tokenStore } from '../../store';
 
@@ -12,7 +13,7 @@
 
 	const handleSubmit = async () => {
 		await axios.post(
-			`http://localhost:3000/transactions/${type}`,
+			`${server}/transactions/${type}`,
 			{ amount },
 			{
 				headers: {

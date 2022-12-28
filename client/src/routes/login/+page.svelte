@@ -1,4 +1,5 @@
 <script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
 	import axios from 'axios';
 	import rocket from '$lib/assets/Rocket.gif';
 	import error404 from '$lib/assets/error404.png';
@@ -15,7 +16,7 @@
 	const handleSubmit = async () => {
 		isLoading = true;
 		try {
-			const response = await axios.post('http://localhost:3000/users/login', { email, password });
+			const response = await axios.post(`${server}/users/login`, { email, password });
 			userStore.set(response.data.user);
 			tokenStore.set(response.data.token);
 			isLoading = false;

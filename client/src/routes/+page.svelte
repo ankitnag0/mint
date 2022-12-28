@@ -1,3 +1,7 @@
+<script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
+</script>
+
 <div class="mx-auto lg:w-1/2 w-full">
 	<template>
 		<div class="py-12">
@@ -10,7 +14,7 @@
 					</p>
 					<p class="text-lg mb-8">
 						With low minimum investments and a user-friendly interface, it's never been easier to
-						get started.
+						get started. {server}
 					</p>
 					<a href="/signup" class="btn btn-primary">Get started</a>
 					<a href="/login" class="btn btn-accent">Log in</a>

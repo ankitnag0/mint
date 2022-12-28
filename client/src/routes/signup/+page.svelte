@@ -1,4 +1,5 @@
 <script>
+	let server = import.meta.env.VITE_SERVER_ADDRESS;
 	import axios from 'axios';
 	import rocket from '$lib/assets/Rocket.gif';
 	import error404 from '$lib/assets/error404.png';
@@ -22,7 +23,7 @@
 		isLoading = true;
 		try {
 			console.log({ name, email, phoneNumber, password });
-			const response = await axios.post('http://localhost:3000/users', {
+			const response = await axios.post(`${server}/users`, {
 				name,
 				email,
 				phoneNumber,
