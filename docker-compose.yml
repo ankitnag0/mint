@@ -13,6 +13,8 @@ services:
   # Node API service
   api:
     build: .
+    container_name: api
+    hostname: api
     ports:
       - 3000:3000
     environment:
@@ -20,6 +22,16 @@ services:
       JWT_SECRET: HotWater
     depends_on:
       - mongo_db
+
+  # Nginx service
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    ports:
+      - 80:80
+    depends_on:
+      - api
 
 volumes:
   mongo_db: {}
