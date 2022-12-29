@@ -25,13 +25,25 @@ services:
 
   # Nginx service
   nginx:
-    build:
-      context: ./nginx
+    # build:
+    #   context: ./nginx
+    image: nginx:latest
     container_name: nginx
     ports:
       - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./certbot/www:/var/www/certbot/:ro
     depends_on:
       - api
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
 
 volumes:
   mongo_db: {}
