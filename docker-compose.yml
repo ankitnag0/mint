@@ -13,7 +13,6 @@ services:
   # Node API service
   api:
     build: .
-    container_name: api
     ports:
       - 3000:3000
     environment:
@@ -30,19 +29,7 @@ services:
     container_name: nginx
     ports:
       - 80:80
-      - 443:443
-    restart: always
-    volumes:
-      - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      # - ./certbot/www:/var/www/certbot/:ro
     depends_on:
       - api
-
-  # certbot:
-  #   image: certbot/certbot:latest
-  #   volumes:
-  #     - ./certbot/www/:/var/www/certbot/:rw
-  #     - ./certbot/conf/:/etc/letsencrypt/:rw
-
 volumes:
   mongo_db: {}
